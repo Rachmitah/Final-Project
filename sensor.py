@@ -12,13 +12,14 @@ GPIO.setup(TRIG,GPIO.OUT)
 GPIO.setup(ECHO,GPIO.IN)
 
 GPIO.output(TRIG, False)
-print "Calibrating....."
+print ("Calibrating.....")
 time.sleep(2)
 
-print "Place the object......"
+print ("Place the object......")
 
 
 try:
+    print("TRY")
     while True:
        GPIO.output(TRIG, True)
        time.sleep(0.00001)
@@ -37,13 +38,14 @@ try:
        distance = round(distance+1.15, 2)
   
        if distance<=20 and distance>=5:
-          print "distance:",distance,"cm"
+          print ("distance:",distance,"cm")
           i=1
           
        if distance>20 and i==1:
-          print "place the object...."
+          print ("place the object....")
           i=0
        time.sleep(2)
 
 except KeyboardInterrupt:
-     GPIO.cleanup()
+  print("GAGAL")
+  GPIO.cleanup()
