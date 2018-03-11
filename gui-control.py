@@ -1,20 +1,5 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
-"""
-ZetCode PyQt5 tutorial 
-
-In this example, we determine the event sender
-object.
-
-author: Jan Bodnar
-website: zetcode.com 
-last edited: January 2015
-"""
-
 import sys
 from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication
-
 
 class Example(QMainWindow):
     
@@ -26,10 +11,10 @@ class Example(QMainWindow):
         
     def initUI(self):      
 
-        btn1 = QPushButton("Button 1", self)
+        btn1 = QPushButton("Tombol 1", self)
         btn1.move(30, 50)
 
-        btn2 = QPushButton("Button 2", self)
+        btn2 = QPushButton("Tombol 2", self)
         btn2.move(150, 50)
       
         btn1.clicked.connect(self.buttonClicked)            
@@ -38,15 +23,13 @@ class Example(QMainWindow):
         self.statusBar()
         
         self.setGeometry(300, 300, 290, 150)
-        self.setWindowTitle('Event sender')
+        self.setWindowTitle('Kontrol Unit Utama')
         self.show()
-        
         
     def buttonClicked(self):
       
         sender = self.sender()
-        self.statusBar().showMessage(sender.text() + ' was pressed')
-        
+        self.statusBar().showMessage(sender.text() + ' dipencet')
         
 if __name__ == '__main__':
     
