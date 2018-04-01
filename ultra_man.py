@@ -1,47 +1,55 @@
 import time
 import RPi.GPIO as GPIO
-
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)  # set penomeran board ke mode broadcom
 GPIO.setwarnings(False)
 
-#set mode
-GPIO_TRIG = 23
-GPIO_ECHO = 24
-GPIO.setup(GPIO_TRIG,GPIO.OUT)
+# Set mode pin sebagai input untuk trigger, dan output untuk echo
+GPIO_TRIGGER = 23 #sesuaikan pin trigger
+GPIO_ECHO = 24 #sesuaikan pin echo
+GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
 GPIO.setup(GPIO_ECHO,GPIO.IN)
 
-#set awalan trigger low
-GPIO.output(GPIO_TRIG,GPIO.LOW)
+# Set trigger ke False (Low) untuk awal
+GPIO.output(GPIO_TRIGGER, GPIO.LOW)
 
-#fungs ntuk mendapatkan jarak
+#Fungsi untuk menapatkan jarak
 def get_range():
-        #kirim 10us sinyal high ke trigger
-        GPIO.output(GPIO_TRIG, True)
-        time.sleep(0.00001)
+    # Kirim 10us sinyal high ke trigger
+    GPIO.output(GPIO_TRIGGER, True)
+    time.sleep(0.00001)
 
-        #stop trigger
-        GPIO.output(GPIO_TRIG,False)
-        timeout_counter = int(time.time())
+    #Stop trigger
+    GPIO.output(GPIO_TRIGGER, False)
+    timeout_counter = int(time.time())
+    start = time.time()
+
+    #dapatkan waktu start
+    while GPIO.input(GPIO_ECHO)==0 and (int(time.time()) - timeout_counter) < 3:
         start = time.time()
 
-        #mendapatkan waktu start
-        while ((GPIO.input(GPIO_ECHO)==0) and (int(time.time() - timeout_counter) < 3)):
-                start = time.time()
-
-        timeout_counter = int(time.time())
+    timeout_counter = int(time.time())
+    stop = time.time()
+    #dapatkan waktu stop
+    while GPIO.input(GPIO_ECHO)==1 and (int(time.time()) - timeout_counter) < 3:
         stop = time.time()
-        #mendapatkan waktu stop
-        while ((GPIO.input(GPIO_ECHO)==1) and (int(time.time() - timeout_counter) < 3)):
-                stop = time.time()
 
-        #hitungwakt tempuh bolak balik
-        pulse = stop.start
+    #Hitung waktu tempuh bolak-balik
+    elapsed = stop-start
 
-        #hitung jarak
-        distance = (pulse*0.034)/2
+    #Hitung jarak, waktu tempuh dikalikan dengan kecepata suara (dalam centi meter)
+    distance = elapsed * 34320
 
-        return distance
+    #Jaraknya masih dalam hitungan bolak-balik, bagi dua untuk tahu jarak ke halangan
+    distance = distance / 2
 
-#panggil fungsi
-jarak = get_range()
-print("jarakk = %.2f cm % jarak")
+    #selesai
+    return distance
+
+if __name__=="__main__":
+    while(1):
+
+        #Panggil fungsi untuk menghitung jarak  dan cetak hasilnya
+        jarak = get_range()
+        print("Jarak halangan di depan adalah %.2f Cm" % jarak )
+        #outputnya seperti:
+        #Jarak halangan di depan adalah 331.57 Cm
