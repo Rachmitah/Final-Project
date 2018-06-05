@@ -14,6 +14,6 @@ python3 -m pip install PyOpenGL
 python3 -m pip install Pillow
 python3 -m pip install opencv_python
 python3 -m pip install sip
-python3 -m pip install PyQt5
+#python3 -m pip install PyQt5
 #python3 -m pip install PyQt5-tools
 python3 -m pip install imutils
