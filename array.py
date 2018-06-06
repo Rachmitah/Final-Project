@@ -1,6 +1,7 @@
 import time
 import numpy as np
 from ultra_man import get_range
+from mapping import array6x4
 
 arr = np.array([
     [1,   2,  3,  4,  5,  6],	# 1
@@ -40,3 +41,5 @@ for y in hsl:
         posY += 1
 
 print(hsl)
+array6x4(hsl)
+

@@ -22,7 +22,7 @@ def step():
 	while n<=800:
 		n+=1
 		GPIO.output(GPIO_steppin, False)
-		usleep(500)
+		#usleep(900)
 		GPIO.output(GPIO_steppin, True)
 		usleep(500)
 	usleep(1000)

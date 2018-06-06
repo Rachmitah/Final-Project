@@ -9,7 +9,7 @@ import random
 import numpy as np
 from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import Axes3D
-# from ultra_man import get_range
+from ultra_man import get_range
 
 class Window(QDialog):
     def __init__(self, parent=None):
@@ -52,25 +52,24 @@ class Window(QDialog):
                 posX = 0
                 for x in y:
                         # lakukan scan ultrasonic
-                        zz1[posY][posX] = posX
+                        zz1[posY][posX] = get_range()
                         print(zz1[posY][posX])
                         posX += 1
-                        self.figure.clear()        
+                        self.figure.clear()
                         ax = Axes3D(self.figure)
                         ax.plot_surface(xs1, ys1, zz1, rstride=1, cstride=1, cmap=cm.coolwarm)
                         self.canvas.draw()
                         self.canvas.flush_events()
-                        
                 n = 0
             # Y Genap -> dari kanan ke kiri
             else:
                 posX -= 1
                 for x in reversed(y):
                         # lakukan scan ultrasonic
-                        zz1[posY][posX] = posX
+                        zz1[posY][posX] = get_range()
                         print(zz1[posY][posX])
                         posX -= 1
-                        self.figure.clear()        
+                        self.figure.clear()
                         ax = Axes3D(self.figure)
                         ax.plot_surface(xs1, ys1, zz1, rstride=1, cstride=1, cmap=cm.coolwarm)
                         self.canvas.draw()
