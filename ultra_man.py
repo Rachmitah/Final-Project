@@ -4,8 +4,8 @@ GPIO.setmode(GPIO.BOARD)  # set penomeran board ke mode broadcom
 GPIO.setwarnings(False)
 
 # Set mode pin sebagai input untuk trigger, dan output untuk echo
-GPIO_TRIGGER = 16 #sesuaikan pin trigger
-GPIO_ECHO = 18 #sesuaikan pin echo
+GPIO_TRIGGER = 26 #sesuaikan pin trigger
+GPIO_ECHO = 24 #sesuaikan pin echo
 GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
 GPIO.setup(GPIO_ECHO,GPIO.IN)
 

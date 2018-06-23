@@ -1,0 +1,9 @@
+motor1 :
+step : GPIO22,15
+dir : GPIO24, 13
+en : GPIO17, 11
+
+motor2 :
+step : GPIO 4, 7
+dir : GPIO 3, 5
+en : GPIO 2, 3
