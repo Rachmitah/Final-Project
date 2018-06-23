@@ -4,8 +4,9 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 usleep = lambda x : time.sleep(x/1000000.0)
 
-GPIO_steppin = 13
-GPIO_dirpin  = 11
+GPIO_steppin = 15
+GPIO_dirpin  = 13
+GPIO_enable  = 11
 
 GPIO.setup(GPIO_steppin, GPIO.OUT)
 GPIO.setup(GPIO_dirpin, GPIO.OUT)
