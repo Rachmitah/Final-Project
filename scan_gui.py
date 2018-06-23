@@ -9,7 +9,7 @@ import random
 import numpy as np
 from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import Axes3D
-from ultra_man import get_range
+from ultrasonicz import get_range
 
 class Window(QDialog):
     def __init__(self, parent=None):
