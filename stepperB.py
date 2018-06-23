@@ -15,10 +15,12 @@ stp = 0
 dir = 0
 ext = 0
 
+GPIO.output(GPIO_enpin, True)
 GPIO.output(GPIO_dirpin, False)
 GPIO.output(GPIO_steppin, False)
 
 while True:
+	GPIO.output(GPIO_enpin, False)
 	GPIO.output(GPIO_dirpin, True)
 	usleep(1000)
 	GPIO.output(GPIO_dirpin, False)
