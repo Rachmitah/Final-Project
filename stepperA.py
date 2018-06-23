@@ -6,10 +6,11 @@ usleep = lambda x : time.sleep(x/1000000.0)
 
 GPIO_steppin = 15
 GPIO_dirpin  = 13
-GPIO_enable  = 11
+GPIO_enpin  = 11
 
 GPIO.setup(GPIO_steppin, GPIO.OUT)
 GPIO.setup(GPIO_dirpin, GPIO.OUT)
+GPIO.setup(GPIO_enpin, GPIO.OUT)
 
 stp = 0
 dir = 0
@@ -23,7 +24,7 @@ while True:
 	GPIO.output(GPIO_enpin, False)
 	GPIO.output(GPIO_dirpin, True)
 	usleep(1000)
-	GPIO.output(GPIO_dirpin, False)
+	#GPIO.output(GPIO_dirpin, False)
 	usleep(1000)
 	stp += 1
 	if (stp > 3200):
