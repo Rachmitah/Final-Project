@@ -19,24 +19,33 @@ def step():
 	GPIO.output(GPIO_dirpin, False)
 	n=0
 	print("Kiri")
-	while n<=800:
+	while n<=24000:
 		n+=1
 		GPIO.output(GPIO_steppin, False)
 		usleep(0)
 		GPIO.output(GPIO_steppin, True)
-		usleep(500)
+		usleep(250)
 		
-	GPIO.output(GPIO_dirpin, True)
+
+def stepA(arah, step, speed):
+	GPIO.output(GPIO_enpin, True)
+	GPIO.output(GPIO_dirpin, False)
+	usleep(500)
+	GPIO.output(GPIO_enpin, False)
+	GPIO.output(GPIO_dirpin, arah)
+	
 	n=0
 	print("Kiri")
-	while n<=800:
+	while n<=step:
 		n+=1
 		GPIO.output(GPIO_steppin, False)
-		usleep(0)
 		GPIO.output(GPIO_steppin, True)
-		usleep(500)
-	
+		usleep(speed)
+		
 	
 if __name__=="__main__":
-	while True :
-		step()
+	#step()
+	stepA(True, 12000, 150)
+	print("harusnya berenti woiiiii")
+	time.sleep(1)
+	stepA(False, 12000, 150)
