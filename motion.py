@@ -35,7 +35,7 @@ def A8x1(dr):
 			stepA(dr,1000, 90)
 			time.sleep(0.5)
 
-def B(dr):
+def B(dr): 
 		for i in range(b) :
 			if i%2==0: 
 				dr = True
@@ -51,6 +51,6 @@ def B(dr):
 		
 if __name__=="__main__":
 		
-		B(True)
+		#B(False)
 		reset()
 		#stepA(True, 1000, 90)
