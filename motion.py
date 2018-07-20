@@ -2,11 +2,11 @@ from steperAtest import stepA
 from steperBtest import stepB
 import time
 a=24
-b=36
+b=40
 
 def reset():
-		stepA(False, 24000, 90)
-		stepB(False, 36000, 90)
+		stepA(False, 24000, 100)
+		stepB(False, 40000, 100)
 
 def duaxtiga():
 		stepA(True, 12000, 150)
@@ -46,6 +46,10 @@ def B(dr):
 			stepB(True,1000, 90)
 			time.sleep(0.5)
 		
+def c(dr):
+		for i in range(b) :
+			stepB(dr, 1000, 100)
+			time.sleep(1)
 		
 
 		
@@ -53,4 +57,6 @@ if __name__=="__main__":
 		
 		#B(False)
 		reset()
+		#c(True)
 		#stepA(True, 1000, 90)
+		#duaxtiga()

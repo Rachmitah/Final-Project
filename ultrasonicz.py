@@ -40,8 +40,8 @@ def get_range():
     distance = elapsed * 34320
 
     #Jaraknya masih dalam hitungan bolak-balik, bagi dua untuk tahu jarak ke halangan
-    distance = distance / 2
-
+    distance = 25 - (distance / 2 ) 
+	#distance = distance - 25
     #selesai
     return distance
 
