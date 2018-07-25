@@ -18,12 +18,13 @@ def array6x4(zz):
     
 def array32x50(zz):
     x = np.arange(0,24,1)
-    y = np.arange(0,41,1)
+    y = np.arange(0,36,1)
     xs, ys = np.meshgrid(x, y)
     zs = xs**2 + ys**2
     fig = plt.figure()
     ax = Axes3D(fig)
     ax.plot_surface(xs, ys, zz, rstride=1, cstride=1, cmap=cm.viridis)
+    ax.set_zlim([-1,25])
     plt.show()
     
 

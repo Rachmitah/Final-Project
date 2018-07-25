@@ -45,7 +45,7 @@ def stepB(arah, step, speed):
 	
 if __name__=="__main__":
 	#step()
-	stepB(False, 40000, 100)
+	stepB(True, 40000, 150)
 	print("harusnya berenti woiiiii")
 	#time.sleep(1)
 	#stepB(False, 1000, 150)
