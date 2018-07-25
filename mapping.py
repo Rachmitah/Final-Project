@@ -17,8 +17,19 @@ def array6x4(zz):
     plt.show()
     
 def array32x50(zz):
-    x = np.arange(0,24,1)
-    y = np.arange(0,36,1)
+
+    n = 0
+    m = 0
+    for y in zz:
+        m = 0
+        for x in y:
+            m += 1
+        n += 1
+
+    data = np.zeros(shape=(n, m))
+
+    x = np.arange(0,m,1)
+    y = np.arange(0,n,1)
     xs, ys = np.meshgrid(x, y)
     zs = xs**2 + ys**2
     fig = plt.figure()
