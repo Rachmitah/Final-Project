@@ -1273,6 +1273,8 @@ datarv3 = np.array([
     [0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [1, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, -1],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]])
 
 datarv4 = np.array([
@@ -1663,16 +1665,19 @@ data3v3 = np.array([
     [12, 12, 12, 11, 10, 9, 8, 7, 8, 7, 7, 6, 6, 6, 6, 6, 5, 5, 5, 5, 5, 4, 4, 3]])
 
 # Input Data Yang akan di analisis
-dataz = analisisdata.analisis.Analisis(data3v1, data3v2, data3v3)
-
+dataz     = analisisdata.analisis.Analisis(data3h1, data3h2, data3h3)
+nama_data = "data3h"
 # Rata Rata
 
 # Tampilkan data dan simpan
 #print(dataz.rata_rata)
+
 print("overshootMax 1: " + str(dataz.simpangMax1))  # overshootMax 1
 print("overshootMin 1: " + str(dataz.simpangMin1))  # overshootMin 1
+
 print("overshootMax 2: " + str(dataz.simpangMax2))  # overshootMax 2
 print("overshootMin 2: " + str(dataz.simpangMin2))  # overshootMin 2
+
 print("overshootMax 3: " + str(dataz.simpangMax3))  # overshootMax 3
 print("overshootMin 3: " + str(dataz.simpangMin3))  # overshootMIn 3
 
@@ -1681,7 +1686,7 @@ print("Akurasi percobaan 2: " + str(dataz.akurasi2))  # Akurasi percobaan 2
 print("Akurasi percobaan 3: " + str(dataz.akurasi3))  # Akurasi percobaan 3
 
 # Simpan data
-simpanDataAnalisis("data3", dataz.rata_rata, dataz.simpangMax1, dataz.simpangMin1, dataz.simpangMax2, dataz.simpangMin2, dataz.simpangMax3, dataz.simpangMin3, dataz.akurasi1, dataz.akurasi2, dataz.akurasi3)
+simpanDataAnalisis(nama_data, dataz.rata_rata, dataz.simpangMax1, dataz.simpangMin1, dataz.simpangMax2, dataz.simpangMin2, dataz.simpangMax3, dataz.simpangMin3, dataz.akurasi1, dataz.akurasi2, dataz.akurasi3)
 
 # Tampilkan grafik rata rata
 array32x50(dataz.rata_rata)
