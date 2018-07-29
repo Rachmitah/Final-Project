@@ -27,7 +27,6 @@ def array32x50(zz):
         n += 1
 
     data = np.zeros(shape=(n, m))
-
     x = np.arange(0,m,1)
     y = np.arange(0,n,1)
     xs, ys = np.meshgrid(x, y)
